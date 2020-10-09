@@ -1,0 +1,7 @@
+
+> fsevents@2.0.7 install /Users/rosy/react-firebase/node_modules/fsevents
+> node-gyp rebuild
+
+react-firebase@0.1.0 /Users/rosy/react-firebase
+└── typescript@3.7.4 
+

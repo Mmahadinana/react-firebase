@@ -8,12 +8,17 @@ function App() {
   const [newSpellName, setNewSpellName] = React.useState();
 
   React.useEffect(() => {
-    const fetchData = async () => {
+    // const fetchData = async () => {
       const db = firebase.firestore();
-      const data = await db.collection("spells").get();
-      setSpells(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-    };
-    fetchData();
+      return db.collection('spells').onSnapshot((snapshot) => {
+        const spellsData = []
+        spapshot.forEach(doc => spellsData.push(({...doc.data(), id:doc.id})))
+        setSpells(spellsData)
+      })
+      // const data = await db.collection("spells").get();
+      // setSpells(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    // };
+    // fetchData();
   }, []);
 
   const onCreate = () => {
